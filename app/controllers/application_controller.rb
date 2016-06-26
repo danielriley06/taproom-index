@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   helpers Sinatra::TaproomIndex::Helpers
 
+  register Sinatra::TaproomIndex::Routing::Sessions
   register Sinatra::TaproomIndex::Routing::Secrets
 
   configure do
