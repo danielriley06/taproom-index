@@ -5,7 +5,7 @@ module Sinatra
 
         def self.registered(app)
           show_login = lambda do
-            erb :login
+            erb :'users/login'
           end
 
           receive_login = lambda do
