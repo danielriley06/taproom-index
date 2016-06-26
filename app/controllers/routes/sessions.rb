@@ -10,7 +10,7 @@ module Sinatra
 
           receive_login = lambda do
             session[:user_id] = params["user_id"]
-            redirect '/secrets'
+            redirect '/breweries'
           end
 
           app.get  '/', &show_login

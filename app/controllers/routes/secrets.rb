@@ -4,12 +4,12 @@ module Sinatra
       module Secrets
 
         def self.registered(app)
-          show_secrets = lambda do
+          show_breweries = lambda do
             require_logged_in
-            erb :secrets
+            erb :'breweries/breweries'
           end
 
-          app.get  '/secrets', &show_secrets
+          app.get  '/breweries', &show_breweries
         end
 
       end
