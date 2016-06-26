@@ -2,6 +2,7 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  helpers ApplicationHelper
 
   configure do
     set :public_folder, 'public'
