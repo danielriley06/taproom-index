@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "brewery_secret"
   end
 
-  get '/' do
+  get '/?' do
     erb :index
   end
 end
