@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:password] == ""
       redirect to '/signup'
     else
-      @user = User.create(:username => params[:username], :password => params[:password])
+      @user = User.create(:email => params[:signup_email], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/bags'
+      redirect '/breweries'
     end
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if !session[:user_id]
       erb :'users/login'
     else
-      redirect '/bags'
+      redirect '/breweries'
     end
   end
 
