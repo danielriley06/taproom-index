@@ -4,15 +4,15 @@ class UsersController < ApplicationController
     if !session[:user_id]
       erb :'users/signup'
     else
-      redirect to '/clubs'
+      redirect to '/breweries'
     end
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
+    if params[:signup_email] == "" || params[:signup_password] == ""
       redirect to '/signup'
     else
-      @user = User.create(:email => params[:signup_email], :password => params[:password])
+      @user = User.create(:email => params[:signup_email], :password => params[:signup_password])
       session[:user_id] = @user.id
       redirect '/breweries'
     end
@@ -28,8 +28,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(:email => params[:signup_emaile])
+    if user && user.authenticate(params[:signup_password])
       session[:user_id] = user.id
       redirect "/breweries"
     else
