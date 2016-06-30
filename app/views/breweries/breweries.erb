@@ -1,3 +1,38 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addbreweriesModal">Add a Brewery</button>
+<div class="modal fade" id="addbreweriesModal" tabindex="-1" role="dialog" aria-labelledby="addbreweriesModalLabel">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <!-- Modal Header -->
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addbreweriesModalLabel">Add Visited Brewery</h4>
+         </div>
+         <!-- Modal Body -->
+         <div class="modal-body">
+            <form data-async data-target="#auth-response" data-modal="true" action="/breweries/new" method="POST">
+               <div class="form-group">
+                  <label for="BrewName">Brewery Name</label>
+                  <input type="text" name="brew_name" class="form-control" placeholder="Brewery Name"/>
+               </div>
+               <div class="form-group">
+                  <label for="BrewLocation">Brewery City</label>
+                  <input type="text" name="brew_city" class="form-control" placeholder="City"/>
+               </div>
+               <div class="form-group">
+                  <label for="BrewLocation">Brewery State</label>
+                  <input type="text" name="brew_state" class="form-control" placeholder="State Abbreviation"/>
+               </div>
+               <div class="form-group" rows="3">
+                  <label for="BrewNotes">Notes</label>
+                  <input type="text" name="brew_notes" class="form-control" placeholder="Anything of note?"/>
+               </div>
+               <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div><!-- /.modal -->
+
 <h2> Breweries Visited </h2>
 <table class="table table-striped">
    <tr>
