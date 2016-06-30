@@ -1,1 +1,15 @@
-<h1>Testing...Testing...123...</h1>
+<h2> Breweries Visited </h2>
+<table class="table table-striped">
+   <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Notes</th>
+   </tr>
+   <% @breweries.each do |breweries| %>
+   <tr>
+      <td><%= breweries.name %></td>
+      <td><%= breweries.address %></td>
+      <td><%= breweries.notes %></td>
+   </tr>
+   <% end %>
+</table>
