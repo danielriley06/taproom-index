@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Brewery Tracker</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/customcss.css">
+  </head>
+  <body>
+    <% if logged_in? %>
+    <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="/breweries">
+               <img alt="Brand" src="/images/beer.png">
+               </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+
+                  <li class="active"><a href="/">My Breweries <span class="sr-only">(current)</span></a></li>
+                  <li><a href="/map">Map <span class="sr-only"></span></a></li>
+               </ul>
+                    <form class="navbar-form navbar-right" role="search" method="post" action="/login">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="login_email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="login_password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Sign In</button>
+                </form>
+            </div> <!-- /.navbar-collapse -->
+         </div> <!-- /.container-fluid -->
+      </nav> <!-- /.navbar -->
+       <% else %>
+       <%end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
