@@ -4,6 +4,7 @@ class BreweriesController < ApplicationController
   end
 
   get '/breweries' do
+    @breweries = Breweries.all
     erb :'breweries/breweries'
   end
 end
