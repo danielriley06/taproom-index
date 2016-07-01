@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/?' do
-    erb :'welcome/welcome'
+    if !logged_in?
+      erb :'welcome/welcome'
+    else
+      redirect to '/breweries'
+    end
+
   end
 end

@@ -3,4 +3,8 @@ class Breweries < ActiveRecord::Base
   include Slugifiable::InstanceMethods
 
   belongs_to :user
+
+  def address
+    [city, state].join(', ')
+  end
 end
