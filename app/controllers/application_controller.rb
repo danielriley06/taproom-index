@@ -2,6 +2,7 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
+  helpers ActionView::Helpers::FormTagHelper
   helpers Sinatra::TaproomIndex::Helpers
 
   configure do
