@@ -46,4 +46,9 @@ class UsersController < ApplicationController
     end
   end
 
+  route :get, :post, '/user/edit' do
+    @user = User.find_by(:email => params[:login_email])
+    erb :'users/edit'
+  end
+
 end
