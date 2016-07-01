@@ -125,6 +125,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack
   activerecord
+  activesupport
   bcrypt
   capybara
   database_cleaner!

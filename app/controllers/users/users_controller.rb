@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  helpers ActionView::Helpers::FormTagHelper
+
   get '/signup' do
     if !session[:user_id]
       erb :'users/signup'
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
     if params[:signup_email] == "" || params[:signup_password] == ""
       redirect to '/signup'
     else
-      @user = User.create(:email => params[:signup_email], :password => params[:signup_password])
+      @user = User.create(:email => params[:signup_email], :password => params[:signup_password], :first_name => params[:signup_firstname], :last_name => params[:signup_lastname])
       session[:user_id] = @user.id
       redirect '/breweries'
     end
@@ -46,9 +48,14 @@ class UsersController < ApplicationController
     end
   end
 
-  route :get, :post, '/user/edit' do
-    @user = User.find_by(:email => params[:login_email])
-    erb :'users/edit'
+  get '/user/account' do
+    @user = current_user
+    erb :'users/account'
+  end
+
+  post '/user/account' do
+    @user = current_user
+    erb :'users/account'
   end
 
 end
