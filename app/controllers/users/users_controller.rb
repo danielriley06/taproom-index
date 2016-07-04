@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  helpers ActionView::Helpers::FormTagHelper
-
   get '/signup' do
     if !session[:user_id]
       erb :'users/signup'
