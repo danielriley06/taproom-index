@@ -11,6 +11,8 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+gem 'json'
+gem 'geocoder', :require => ['geocoder', 'geocoder/railtie']
 
 
 group :test do
