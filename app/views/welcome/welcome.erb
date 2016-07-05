@@ -18,25 +18,46 @@
                <meta name="description" content="">
                <meta name="viewport" content="width=device-width, initial-scale=1">
                <link rel="apple-touch-icon" href="apple-touch-icon.png">
-               <link rel="stylesheet" href="/css/bootstrap.min.css">
-               <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
                <link rel="stylesheet" href="/css/main.css">
+
+
                <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
             </head>
             <body>
                <!-- Jumbotron -->
-               <div class="jumbotron">
+
                <div class="container">
-                  <div class="page-header">
+                  <div class="site-header clearfix" role="banner">
+
+                  </div>
+                    <div class="site-promo">
                      <h1>Brewrank</h1>
-                     <div class="description">Track, rate, and view breweries.</small></div>
+                     <p class="description">Brewrank allows you to track, rank and review breweries and taprooms you have visited.</p>
 
                         <div class="cta-option">
-                           <a class="btn btn-download" href="/signup" role="button">Sign Up &raquo;</a>
+                           <a class="btn btn-download" href="#" data-toggle="modal" data-target="#signup-modal">Sign Up &raquo;</a>
                         </div>
+                        <!-- Sign Up Modal -->
+                          <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                             <div class="modal-dialog">
+                                <div class="loginmodal-container">
+                                   <h1>Sign Up for an Account</h1>
+                                   <br>
+                                   <form method="post" action="/signup">
+                                      <input type="text" class="form-control" id="signup_firstname" name="signup_firstname" placeholder="First Name">
+                                      <input type="text" class="form-control" id="signup_lastname" name="signup_lastname" placeholder="Last Name">
+                                      <input type="email" class="form-control" id="signup_email" name="signup_email" placeholder="Email">
+                                      <input type="password" class="form-control" id="signup_password" name="signup_password" placeholder="Password">
+                                      <input type="submit" name="login" class="login loginmodal-submit" value="Submit">
+                                   </form>
+
+                                </div>
+                             </div>
+                          </div>
                         <div class="cta-option">
                            <a class="btn btn-download" href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                          </div>
+                         <!-- Login Modal -->
                            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                               <div class="modal-dialog">
                                  <div class="loginmodal-container">
@@ -53,35 +74,36 @@
                                  </div>
                               </div>
                            </div>
-
+                         </div>
                       </div>
-                     </div>
-                  </div>
-               </div>
+
+
+               <div class="site-section">
                <div class="container">
-                  <!-- Example row of columns -->
-                  <div class="row">
-                     <div class="col-md-4">
-                        <h2>Heading</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                 <h2>Track. Rate. Review.</h2>
+                  <div class="grid">
+                     <div class="grid-cell">
+                        <h2>Track</h2>
+                        <p>There are thousands of breweries across the U.S. Use Brewrank to keep a list of those you have visited.</p>
+
                      </div>
-                     <div class="col-md-4">
-                        <h2>Heading</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                     <div class="grid-cell">
+                        <h2>Rate</h2>
+                        <p>Assign a rating based on quality of beer, the taproom's feel, tour's, and overall experience.</p>
+
                      </div>
-                     <div class="col-md-4">
-                        <h2>Heading</h2>
-                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                     <div class="grid-cell">
+                        <h2>View Other User's Ratings</h2>
+                        <p>Coming Soon! View the communities score for breweries.</p>
+
                      </div>
                   </div>
                </div>
+             </div>
                <hr>
                <footer>
                   <div class="container">
-                     <p>&copy; Company 2015</p>
+                     <p>&copy; Brewrank 2016</p>
                   </div>
                </footer>
                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
