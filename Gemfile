@@ -13,6 +13,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'json'
 gem 'geocoder', :require => ['geocoder', 'geocoder/railtie']
+gem 'gmap4rails'
 
 
 group :test do
