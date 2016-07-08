@@ -3,6 +3,7 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   helpers Sinatra::TaproomIndex::Helpers
+  register Sinatra::Flash
 
   configure do
     set :public_folder, 'public'
@@ -13,7 +14,7 @@ class ApplicationController < Sinatra::Base
 
   get '/?' do
     if !logged_in?
-      erb :'welcome/welcome', :layout => false 
+      erb :'welcome/welcome', :layout => false
     else
       redirect to '/breweries'
     end

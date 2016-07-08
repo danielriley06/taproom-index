@@ -9,12 +9,15 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:signup_email] == "" || params[:signup_password] == ""
-      redirect to '/signup'
-    else
-      @user = User.create(:email => params[:signup_email], :password => params[:signup_password], :first_name => params[:signup_firstname], :last_name => params[:signup_lastname])
+    @user = User.create(:email => params[:signup_email], :password => params[:signup_password], :first_name => params[:signup_firstname], :last_name => params[:signup_lastname])
+    if @user.save
+      flash[:notice] = "Successfully added new user."
       session[:user_id] = @user.id
       redirect '/breweries'
+    else
+      flash[:error] = @user.errors.full_messages
+      flash[:errors_list] = @user.errors.messages
+      redirect "/signup"
     end
   end
 

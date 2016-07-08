@@ -1,3 +1,11 @@
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error] %>
+ <% flash[:error].each do |e| %>
+   <p class="error message"><%= e + "." %></p>
+  <% end %>
+<% end %>
 <form class="form-horizontal" method="post" action="/signup">
   <div class="form-group">
     <div class="col-sm-10">
