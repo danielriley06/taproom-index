@@ -22,4 +22,9 @@ class BreweriesController < ApplicationController
     end
     erb :'map/map', :layout => false
   end
+
+  post '/brewery/:id' do
+    @brewery = Breweries.find_by_id(params[:id])
+    erb :'breweries/edit'
+  end
 end

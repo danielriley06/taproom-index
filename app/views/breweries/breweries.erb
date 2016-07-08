@@ -46,7 +46,7 @@
       <td><%= breweries.name %></td>
       <td><%= breweries.address %></td>
       <td><%= breweries.notes %></td>
-      <td><button type="button" class="btn btn-success pull-right">Edit</button></td>
+      <td><form class="form-horizontal" method="post" action="/brewery/<%= breweries.id %>"><button type="submit" class="btn btn-success pull-right">Edit</button></form></td>
    </tr>
    <% end %>
 </table>
