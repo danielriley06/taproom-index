@@ -20,6 +20,6 @@ class BreweriesController < ApplicationController
     @markers = @breweries.map do |b|
        { :title => b.name, :lat => b.latitude, :lng => b.longitude }
     end
-    erb :'map/map'
+    erb :'map/map', :layout => false
   end
 end

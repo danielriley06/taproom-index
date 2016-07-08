@@ -1,3 +1,102 @@
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
+<!doctype html>
+<html>
+  <head>
+    <title>Brewery Tracker</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    #map {
+        height: 90%;
+      }
+    </style>
+  </head>
+  <body>
+    <% if logged_in? %>
+    <nav class="navbar navbar-inverse">
+         <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="/breweries">
+               <img alt="Brand" src="/img/beer.png">
+               </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+
+                  <li><a href="/">My Breweries <span class="sr-only">(current)</span></a></li>
+                  <li class="active"><a href="/map">Map <span class="sr-only"></span></a></li>
+               </ul>
+                  <ul class="nav navbar-nav navbar-right" align="right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="/user/account">Account Options</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/logout">Log Out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+            </div> <!-- /.navbar-collapse -->
+         </div> <!-- /.container-fluid -->
+      </nav> <!-- /.navbar -->
+       <% else %>
+       <%end %>
+
+      <div id="map"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    window.initMap = function(){
+          var center = new google.maps.LatLng(37.09024, -95.712891);
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: center,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          var markers = [];
+          var location = <%= @markers.to_json %>;
+          for (var i = 0; i < location.length; i++) {
+            var location = <%= @markers.to_json %>;
+            var obj = location[i]
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(obj.lat, obj.lng),
+              map: map,
+              title: obj.title
+            });
+            marker['infowindow'] = new google.maps.InfoWindow({
+              content: obj.title
+            });
+            google.maps.event.addListener(marker, 'mouseover', function() {
+              this['infowindow'].open(map, this);
+            });
+            google.maps.event.addListener(marker, 'mouseout', function(){
+              this['infowindow'].close(map, this);
+            });
+            markers.push(marker);
+
+          }
+
+
+        }
+        </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgAEfy82TPTtD9EKfptYXZq7LeLyEGzqw&callback=initMap"></script>
+
+  </body>
+</html>
