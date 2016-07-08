@@ -3,6 +3,10 @@
   <head>
     <title>Brewery Tracker</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <link href="/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="/js/vendor/star-rating.min.js" type="text/javascript"></script>
 
   </head>
   <body>
@@ -46,8 +50,12 @@
        <div class="container">
       <%= yield %>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $("#input-1").rating({min:0, max:5, step:1, size:'xs', showClear:false});
+      $(document).on('ready', function(){
+        $('#input-2').rating({displayOnly: true});
+      });
+    </script>
 
 
   </body>

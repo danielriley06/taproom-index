@@ -11,7 +11,7 @@ class BreweriesController < ApplicationController
   end
 
   post '/breweries/new' do
-    @breweries = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id)
+    @breweries = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
     redirect to "/breweries"
   end
 

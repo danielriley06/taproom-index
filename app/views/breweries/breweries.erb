@@ -26,6 +26,10 @@
                   <label for="BrewNotes">Notes</label>
                   <input type="text" name="brew_notes" class="form-control" placeholder="Anything of note?"/>
                </div>
+               <div class="form-group">
+                  <label for="BrewLocation" class="control-label">Rate Brewery</label>
+                  <input id="input-1">
+               </div>
                <button type="submit" class="btn btn-success">Submit</button>
             </form>
          </div>
@@ -39,6 +43,7 @@
       <th>Name</th>
       <th>Location</th>
       <th>Notes</th>
+      <th>Rating</th>
       <th></th>
    </tr>
    <% @breweries.each do |breweries| %>
@@ -46,6 +51,7 @@
       <td><%= breweries.name %></td>
       <td><%= breweries.address %></td>
       <td><%= breweries.notes %></td>
+      <td><input data-display-only=true value="<%=breweries.rating%>" class="rating" min=0 max=5 step=1 data-size="xs"></td>
       <td><form class="form-horizontal" method="post" action="/brewery/<%= breweries.id %>"><button type="submit" class="btn btn-success pull-right">Edit</button></form></td>
    </tr>
    <% end %>
