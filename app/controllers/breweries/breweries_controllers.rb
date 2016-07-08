@@ -11,12 +11,12 @@ class BreweriesController < ApplicationController
   end
 
   post '/breweries/new' do
-    @breweries = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
-    if @brewies.save
+    @brewery = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
+    if @brewery.save
       redirect to "/breweries"
     else
-      flash[:error] = @user.errors.full_messages
-      flash[:errors_list] = @user.errors.messages
+      flash[:error] = @brewery.errors.full_messages
+      flash[:errors_list] = @brewery.errors.messages
       redirect "/breweries"
     end
   end
@@ -47,7 +47,7 @@ class BreweriesController < ApplicationController
     else
       flash[:error] = @brewery.errors.full_messages
       flash[:errors_list] = @brewery.errors.messages
-      redirect "/breweries"
+      erb :'breweries/edit'
     end
   end
 end

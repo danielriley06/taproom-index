@@ -3,7 +3,7 @@
 <% end %>
 <% if flash[:error] %>
  <% flash[:error].each do |e| %>
-   <p class="error message"><%= e + "." %></p>
+   <div class="well errormessage"><%= e + "." %></div>
   <% end %>
 <% end %>
 <form class="form-horizontal" method="post" action="/signup">
