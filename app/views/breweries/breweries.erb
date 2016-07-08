@@ -1,3 +1,11 @@
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error] %>
+ <% flash[:error].each do |e| %>
+   <p class="error message"><%= e + "." %></p>
+  <% end %>
+<% end %>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addbreweriesModal">Add a Brewery</button>
 <div class="modal fade" id="addbreweriesModal" tabindex="-1" role="dialog" aria-labelledby="addbreweriesModalLabel">
    <div class="modal-dialog" role="document">

@@ -12,7 +12,13 @@ class BreweriesController < ApplicationController
 
   post '/breweries/new' do
     @breweries = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
-    redirect to "/breweries"
+    if @brewies.save
+      redirect to "/breweries"
+    else
+      flash[:error] = @user.errors.full_messages
+      flash[:errors_list] = @user.errors.messages
+      redirect "/breweries"
+    end
   end
 
   get '/map' do
@@ -36,6 +42,12 @@ class BreweriesController < ApplicationController
     @brewery.notes = params[:brew_notes]
     @brewery.rating = params[:brew_rating]
     @brewery.save
-    redirect to "/breweries"
+    if @brewery.save
+      redirect to "/breweries"
+    else
+      flash[:error] = @brewery.errors.full_messages
+      flash[:errors_list] = @brewery.errors.messages
+      redirect "/breweries"
+    end
   end
 end
