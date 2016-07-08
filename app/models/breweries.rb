@@ -5,7 +5,7 @@ class Breweries < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :name, :city, :state, :rating, presence: true
 
   def address
     [city, state].join(', ')
