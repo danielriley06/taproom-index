@@ -51,8 +51,13 @@ class UsersController < ApplicationController
     erb :'users/account'
   end
 
-  post '/user/account' do
+  patch '/user/account' do
     @user = current_user
+    @user.first_name = params[:signup_firstname]
+    @user.last_name = params[:signup_lastname]
+    @user.email = params[:signup_email]
+    @user.password = params[:signup_password]
+    @user.save
     erb :'users/account'
   end
 
