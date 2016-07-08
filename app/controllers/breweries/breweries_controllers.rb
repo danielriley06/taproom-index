@@ -34,6 +34,7 @@ class BreweriesController < ApplicationController
     @brewery.city = params[:brew_city]
     @brewery.state = params[:brew_state]
     @brewery.notes = params[:brew_notes]
+    @brewery.rating = params[:brew_rating]
     @brewery.save
     redirect to "/breweries"
   end
