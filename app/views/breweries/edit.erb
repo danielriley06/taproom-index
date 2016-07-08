@@ -1,20 +1,21 @@
 <%= @brewery.name %>
 <form  action="/breweries/<%= @brewery.id %>/edit" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
    <div class="form-group">
       <label for="BrewName">Brewery Name</label>
-      <input type="text" name="brew_name" class="form-control" placeholder="Brewery Name"/>
+      <input type="text" name="brew_name" class="form-control" value="<%= @brewery.name%>"/>
    </div>
    <div class="form-group">
       <label for="BrewLocation">Brewery City</label>
-      <input type="text" name="brew_city" class="form-control" placeholder="City"/>
+      <input type="text" name="brew_city" class="form-control" value="<%= @brewery.city%>"/>
    </div>
    <div class="form-group">
       <label for="BrewLocation">Brewery State</label>
-      <input type="text" name="brew_state" class="form-control" placeholder="State Abbreviation"/>
+      <input type="text" name="brew_state" class="form-control" value="<%= @brewery.state%>"/>
    </div>
    <div class="form-group" rows="3">
       <label for="BrewNotes">Notes</label>
-      <input type="text" name="brew_notes" class="form-control" placeholder="Anything of note?"/>
+      <input type="text" name="brew_notes" class="form-control" value="<%= @brewery.notes%>"/>
    </div>
    <button type="submit" class="btn btn-success">Submit</button>
 </form>

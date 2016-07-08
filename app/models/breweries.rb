@@ -11,4 +11,5 @@ class Breweries < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode
+  after_save :geocode
 end

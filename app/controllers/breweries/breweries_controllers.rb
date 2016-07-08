@@ -27,4 +27,14 @@ class BreweriesController < ApplicationController
     @brewery = Breweries.find_by_id(params[:id])
     erb :'breweries/edit'
   end
+
+  patch '/breweries/:id/edit' do
+    @brewery = Breweries.find_by_id(params[:id])
+    @brewery.name = params[:brew_name]
+    @brewery.city = params[:brew_city]
+    @brewery.state = params[:brew_state]
+    @brewery.notes = params[:brew_notes]
+    @brewery.save
+    redirect to "/breweries"
+  end
 end
