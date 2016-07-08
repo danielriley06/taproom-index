@@ -80,7 +80,7 @@
               title: obj.title
             });
             marker['infowindow'] = new google.maps.InfoWindow({
-              content: '<h4>' + obj.title + '</h4>'
+              content: '<h4>' + obj.title + '</h4>' + '<br>' + '<h5>' + "Notes:" + " " + obj.notes + '</h5>'
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
               this['infowindow'].open(map, this);

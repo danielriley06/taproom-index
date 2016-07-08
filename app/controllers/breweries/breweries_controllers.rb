@@ -22,9 +22,9 @@ class BreweriesController < ApplicationController
   end
 
   get '/map' do
-    @breweries = Breweries.where("user_id = ?", current_user.id).select("name, latitude, longitude")
+    @breweries = Breweries.where("user_id = ?", current_user.id).select("name, latitude, longitude, notes")
     @markers = @breweries.map do |b|
-       { :title => b.name, :lat => b.latitude, :lng => b.longitude }
+       { :title => b.name, :lat => b.latitude, :lng => b.longitude, :notes => b.notes }
     end
     erb :'map/map', :layout => false
   end
@@ -43,11 +43,11 @@ class BreweriesController < ApplicationController
     @brewery.rating = params[:brew_rating]
     @brewery.save
     if @brewery.save
-      redirect to "/breweries"
+      redirect to '/breweries'
     else
       flash[:error] = @brewery.errors.full_messages
       flash[:errors_list] = @brewery.errors.messages
-      erb :'breweries/edit'
+      redirect '/breweries'
     end
   end
 end
