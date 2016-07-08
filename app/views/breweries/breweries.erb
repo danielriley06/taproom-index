@@ -39,12 +39,14 @@
       <th>Name</th>
       <th>Location</th>
       <th>Notes</th>
+      <th></th>
    </tr>
    <% @breweries.each do |breweries| %>
    <tr>
       <td><%= breweries.name %></td>
       <td><%= breweries.address %></td>
       <td><%= breweries.notes %></td>
+      <td><button type="button" class="btn btn-success pull-right">Edit</button></td>
    </tr>
    <% end %>
 </table>
