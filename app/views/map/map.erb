@@ -62,18 +62,17 @@
     <script src="/js/vendor/bootstrap.min.js"></script>
     <script type="text/javascript">
     window.initMap = function(){
-          var center = new google.maps.LatLng(37.09024, -95.712891);
-
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: center,
+            zoom: 5,
+            center: new google.maps.LatLng(37.09024, -95.712891),
             mapTypeId: google.maps.MapTypeId.ROADMAP
           });
 
+          var marker, i;
           var markers = [];
           var location = <%= @markers.to_json %>;
+
           for (var i = 0; i < location.length; i++) {
-            var location = <%= @markers.to_json %>;
             var obj = location[i]
             var marker = new google.maps.Marker({
               position: new google.maps.LatLng(obj.lat, obj.lng),
@@ -81,7 +80,7 @@
               title: obj.title
             });
             marker['infowindow'] = new google.maps.InfoWindow({
-              content: obj.title
+              content: '<h4>' + obj.title + '</h4>'
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
               this['infowindow'].open(map, this);
@@ -90,11 +89,9 @@
               this['infowindow'].close(map, this);
             });
             markers.push(marker);
-
           }
-
-
         }
+
         </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgAEfy82TPTtD9EKfptYXZq7LeLyEGzqw&callback=initMap"></script>
 
