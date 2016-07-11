@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   get '/login' do
     @error_message = params[:error]
     if !session[:user_id]
-      erb :'users/login'
+      erb :'users/login', locals: {message: "Invalid username or password! Please try again."}
     else
       redirect '/breweries'
     end

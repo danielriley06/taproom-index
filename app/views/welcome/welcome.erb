@@ -41,13 +41,8 @@
                           <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                              <div class="modal-dialog">
                                 <div class="loginmodal-container">
-                                  <% if flash[:notice] %>
-                                    <p class="notice"><%= flash[:notice] %></p>
-                                  <% end %>
-                                  <% if flash[:error] %>
-                                    <% flash[:error].each do |e| %>
-                                      <p class="error message"><%= e + "." %></p>
-                                    <% end %>
+                                  <% unless locals.empty? %>
+                                    <%= message %>
                                   <% end %>
                                    <h1>Sign Up for an Account</h1>
                                    <br>
@@ -69,6 +64,9 @@
                            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                               <div class="modal-dialog">
                                  <div class="loginmodal-container">
+                                   <% unless locals.empty? %>
+                                    <%= message %>
+                                    <% end %>
                                     <h1>Login to Your Account</h1>
                                     <br>
                                     <form method="post" action="/login">
