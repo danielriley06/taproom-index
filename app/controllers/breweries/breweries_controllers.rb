@@ -22,9 +22,9 @@ class BreweriesController < ApplicationController
   end
 
   get '/map' do
-    @breweries = Breweries.where("user_id = ?", current_user.id).select("name, latitude, longitude, notes")
+    @breweries = Breweries.where("user_id = ?", current_user.id).select("name, latitude, longitude, notes, rating")
     @markers = @breweries.map do |b|
-       { :title => b.name, :lat => b.latitude, :lng => b.longitude, :notes => b.notes }
+       { :title => b.name, :lat => b.latitude, :lng => b.longitude, :notes => b.notes, :rating => b.rating }
     end
     erb :'map/map', :layout => false
   end

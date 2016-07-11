@@ -3,6 +3,11 @@
   <head>
     <title>Brewery Tracker</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/brewery.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <link href="/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="/js/vendor/star-rating.min.js" type="text/javascript"></script>
 
 
 
@@ -58,8 +63,7 @@
 
       <div id="map"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
+
     <script type="text/javascript">
     window.initMap = function(){
           var map = new google.maps.Map(document.getElementById('map'), {
@@ -80,7 +84,9 @@
               title: obj.title
             });
             marker['infowindow'] = new google.maps.InfoWindow({
-              content: '<h4>' + obj.title + '</h4>' + '<br>' + '<h5>' + "Notes:" + " " + obj.notes + '</h5>'
+              content: '<h4>' + obj.title + '</h4>' + '<br>' + '<h5>' +
+              "Notes:" + " " + obj.notes + '</h5>' + '<br>' +
+              "Rating:" + " " +  obj.rating + " " + "Stars"
             });
             google.maps.event.addListener(marker, 'mouseover', function() {
               this['infowindow'].open(map, this);
@@ -94,6 +100,7 @@
 
         </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgAEfy82TPTtD9EKfptYXZq7LeLyEGzqw&callback=initMap"></script>
+
 
   </body>
 </html>
