@@ -28,6 +28,11 @@ footer {
 
 }
 
+.navbar-default .navbar-transparent {
+  background-color: #666;
+  background-color: rgba(0,0,0,0.6);
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -57,13 +62,13 @@ footer {
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
-    background-color:rgba(255,255,255,.8);
+    background-color:rgba(0,0,0,0.6);
 }
 #login-dp .help-block{
     font-size:12px
 }
 #login-dp .bottom{
-    background-color:rgba(255,255,255,.8);
+    background-color:rgba(0,0,0,0.6);
     border-top:1px solid #ddd;
     clear:both;
     padding:14px;

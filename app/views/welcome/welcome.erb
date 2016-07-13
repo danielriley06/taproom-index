@@ -20,6 +20,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
 
 
     <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -27,15 +28,18 @@
 
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <header id="js-navbar" class="navbar navbar-default navbar-fixed-top navbar-semi-transparent navbar-highlight-aquamarine" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Taproom Index</a>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="sidepanel" data-target="#navbar-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <a class="navbar-brand" href="/">
+                  <span class="navbar-logo">Taproom Index</span>
+                </a>
             </div>
             <center>
                 <div class="navbar-collapse collapse" id="navbar-main">
@@ -69,7 +73,7 @@
                                                     <input type="password" class="form-control" id="exampleInputPassword2" name="signup_password_confirmation" placeholder="Confirm Password" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                                                    <button type="submit" class="btn btn-primary btn-sm">Sign up</button>
                                                 </div>
 
                                             </form>
@@ -83,19 +87,19 @@
 
                     <form class="navbar-form navbar-right" role="search" method="post" action="/login">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="login_email" placeholder="Email">
+                            <input type="text" class="input-sm form-control" name="login_email" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="login_password" placeholder="Password">
+                            <input type="password" class="input-sm form-control" name="login_password" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-success">Sign In</button>
+                        <button type="submit" class="navbar-btn btn-xs btn-success">Sign In</button>
                     </form>
                 </div>
             </center>
         </div>
-    </div>
+    </header>
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="/img/taproom.jpg" style="height: 758px;">Track. Rate. Review.</div>
+    <div class="parallax-window" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/img/taproom.png" style="height: 758px;">Track. Rate. Review.</div>
 
     <div class="site-section" <div class="container">
         <h1 class="animated fadeInUp">Track. Rate. Review.</h1>
@@ -124,7 +128,7 @@
     </div>
     </div>
 
-    <div class="parallax-window" data-parallax="scroll" data-image-src="/img/brewery.jpg" style="height: 758px;"></div>
+    <div class="parallax-window" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="/img/brewery.png" style="height: 758px;"></div>
     <footer>
         <div class="container">
             <p>&copy; Brewrank 2016</p>
