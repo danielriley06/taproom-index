@@ -4,7 +4,7 @@ Bundler.require(:default)
 require_all 'app'
 
 configure :production do
- db = URI.parse(ENV['postgres://galhabotqupxfg:cIVhlPt4Wsck16uqJYch48YPx2@ec2-54-243-199-161.compute-1.amazonaws.com:5432/d89r24kfi4dmsj'] || 'postgres:///localhost/mydb')
+ db = URI.parse(ENV['DATABASE_URL'])
 
  ActiveRecord::Base.establish_connection(
    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
