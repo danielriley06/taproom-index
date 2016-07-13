@@ -40,7 +40,45 @@
         <center>
             <div class="navbar-collapse collapse" id="navbar-main">
               <ul class="nav navbar-nav">
-                <li><a href="/signup">Signup</a>
+                <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+
+								 <form class="form" role="form" method="post" action="/signup" accept-charset="UTF-8" id="login-nav">
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">First Name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" name="signup_firstname" placeholder="First Name" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Last Name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail2" name="signup_lastname" placeholder="Last Name" required>
+                      </div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+											 <input type="email" class="form-control" id="exampleInputEmail2" name="signup_email" placeholder="Email address" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" name="signup_password" placeholder="Password" required>
+										</div>
+                    <div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Confirm Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" name="signup_password" placeholder="Confirm Password" required>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+										</div>
+
+								 </form>
+							</div>
+
+					 </div>
+				</li>
+			</ul>
+        </li>
                 </ul>
 
                 <form class="navbar-form navbar-right" role="search" method="post" action="/login">
@@ -50,7 +88,7 @@
                     <div class="form-group">
                         <input type="password" class="form-control" name="login_password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-default">Sign In</button>
+                    <button type="submit" class="btn btn-success">Sign In</button>
                 </form>
             </div>
         </center>
@@ -61,25 +99,25 @@
 
               <div class="site-section"
                <div class="container">
-                 <h2 class="animated fadeInUp">Track. Rate. Review.</h2>
+                 <h1 class="animated fadeInUp">Track. Rate. Review.</h1>
                   <div class="grid">
                      <div class="grid-cell">
-                        <h2 class="animated fadeInUp"><span class="star">★</span> Track</h2>
+                        <h1 class="animated fadeInUp"><span class="star">★</span> Track</h1>
                         <p class="animated fadeInUp">There are thousands of breweries across the U.S. Use Brewrank to keep a list of those you have visited.</p>
 
                      </div>
                      <div class="grid-cell">
-                        <h2 class="animated fadeInUp"><span class="star">★</span> Map out your breweries</h2>
+                        <h1 class="animated fadeInUp"><span class="star">★</span> Map out your breweries</h1>
                         <p class="animated fadeInUp">View all your previous visits on a map.</p>
 
                      </div>
                      <div class="grid-cell">
-                        <h2 class="animated fadeInUp"><span class="star">★</span> Rate</h2>
+                        <h1 class="animated fadeInUp"><span class="star">★</span> Rate</h1>
                         <p class="animated fadeInUp">Assign a rating based on quality of beer, the taproom's feel, tour's, and overall experience.</p>
 
                      </div>
                      <div class="grid-cell">
-                        <h2 class="animated fadeInUp"><span class="star">★</span> View Other User's Ratings</h2>
+                        <h1 class="animated fadeInUp"><span class="star">★</span> View Other User's Ratings</h1>
                         <p class="animated fadeInUp">Coming Soon! View the communities score for breweries.</p>
 
                      </div>
