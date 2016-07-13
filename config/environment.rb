@@ -3,6 +3,10 @@ Bundler.require(:default)
 
 require_all 'app'
 
+configure :development do
+  set :database, "sqlite3:db/database.db"
+end
+
 configure :production do
  db = URI.parse(ENV['DATABASE_URL'])
 
