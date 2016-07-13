@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
   helpers Sinatra::TaproomIndex::Helpers
   register Sinatra::Flash
 
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
