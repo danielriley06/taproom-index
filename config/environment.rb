@@ -4,7 +4,9 @@ Bundler.require(:default)
 require_all 'app'
 
 configure :development do
-  set :database, "sqlite3:db/database.db"
+  db_development = {adapter: 'sqlite3', database: 'development'}
+
+  ActiveRecord::Base.establish_connection(db_development)
 end
 
 configure :production do

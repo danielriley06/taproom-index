@@ -15,7 +15,7 @@ gem 'geocoder', :require => ['geocoder', 'geocoder/railtie']
 
 
 
-group :test do
+group :test, :development do
   gem 'rspec'
   gem 'capybara'
   # gem 'selenium'
