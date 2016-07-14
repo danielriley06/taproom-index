@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(:email => params[:signup_email], :password => params[:signup_password], :password_confirmation => params[:signup_password_confirmation], :first_name => params[:signup_firstname], :last_name => params[:signup_lastname])
+    @user = User.create(params)
     if @user.save
       flash[:notice] = "Successfully added new user."
       session[:user_id] = @user.id

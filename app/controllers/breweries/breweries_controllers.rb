@@ -6,12 +6,12 @@ class BreweriesController < ApplicationController
   end
 
   get '/breweries' do
-    @breweries = Breweries.where("user_id = ?", current_user.id)
+    @breweries = current_user.breweries
     erb :'breweries/breweries'
   end
 
   post '/breweries/new' do
-    @brewery = Breweries.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
+    @brewery = Brewery.create(:name => params[:brew_name], :city => params[:brew_city], :state => params[:brew_state], :notes => params[:brew_notes], :user_id => current_user.id, :rating => params[:brew_rating])
     if @brewery.save
       redirect to "/breweries"
     else
@@ -22,12 +22,12 @@ class BreweriesController < ApplicationController
   end
 
   post '/brewery/:id' do
-    @brewery = Breweries.find_by_id(params[:id])
+    @brewery = Brewery.find_by_id(params[:id])
     erb :'breweries/edit'
   end
 
   patch '/breweries/:id/edit' do
-    @brewery = Breweries.find_by_id(params[:id])
+    @brewery = Brewery.find_by_id(params[:id])
     @brewery.name = params[:brew_name]
     @brewery.city = params[:brew_city]
     @brewery.state = params[:brew_state]

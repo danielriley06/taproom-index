@@ -1,4 +1,4 @@
-class Breweries < ActiveRecord::Base
+class Brewery < ActiveRecord::Base
   extend Geocoder::Model::ActiveRecord
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
