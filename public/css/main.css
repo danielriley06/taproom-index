@@ -1,12 +1,16 @@
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+}
+
 .site-section {
   background-color: #232323;
-  margin: 0px;
   text-align: center;
 }
 
 .site-section h1 {
-  margin-top: 0px;
-  padding: 10px;
   color: #e7e7e7;
   font-size: 75px;
   font-weight: 900;
@@ -15,8 +19,7 @@
 }
 
 .site-section h2 {
-  margin-top: 0px;
-  padding: 10px;
+
   color: #e7e7e7;
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
@@ -24,8 +27,7 @@
 }
 
 .site-section p {
-  margin-bottom: 0px;
-  padding: 5px;
+
   color: #FFFFFF;
   border: 1px solid currentColor;
     border-top-color: currentcolor;
@@ -50,13 +52,12 @@
 }
 
 .site-description {
-  padding-top: 150px;
+
   text-align: center;
 }
 
-.site-description h1 {
-  margin-top: 0px;
-  padding: 10px;
+h1.site-description  {
+
   color: #e7e7e7;
   font-size: 75px;
   font-weight: 900;
@@ -64,19 +65,19 @@
 -moz-osx-font-smoothing: grayscale;
 }
 
-.site-description h2 {
-  margin-top: 0px;
-  padding: 10px;
+h2.site-description  {
+
   color: #ffffff;
+  font-size: 50px;
   font-weight: 900;
   -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
 
-.site-description p {
-  margin-bottom: 0px;
-  padding: 5px;
+p.site-description  {
+
   color: #ffffff;
+  font-size: 20px;
   font-weight: 500;
   border: 1px solid currentColor;
     border-top-color: currentcolor;
@@ -106,11 +107,7 @@
     margin: 0 auto;
 }
 
-footer {
-  background-color: #000;
-  color: #e7e7e7;
 
-}
 footer p {
   padding: 20px;
   margin: 0px
@@ -186,6 +183,8 @@ footer p {
     color: #fff;
     background-color:#59b5fa;
 }
+
+
 @media(max-width:768px){
     #login-dp{
         background-color: inherit;
@@ -194,5 +193,8 @@ footer p {
     #login-dp .bottom{
         background-color: inherit;
         border-top:0 none;
+    }
+    .parallax-window {
+      height: 200px
     }
 }
